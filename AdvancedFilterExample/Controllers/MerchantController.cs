@@ -2,12 +2,14 @@
 
 namespace AdvancedFilterExample.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/{merchantCode}/[controller]")]
     [ApiController]
+
     public class MerchantController : ControllerBase
     {
-        //[MerchantCodeFilter]
-        [HttpGet]
+
+
+        [HttpGet()]
         [Route("GetUsers")]
         public async Task<IActionResult> Get()
         {

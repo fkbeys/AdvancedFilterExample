@@ -7,10 +7,14 @@ namespace AdvancedFilterExample.Filters
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             //getdata
-            var data = context.RouteData.Values["Merchant"].ToString();
+            string key = "merchantCode";
+            var data = context.RouteData.Values[key].ToString();
 
 
             //set data
+            if (context.ActionArguments.ContainsKey(key))
+                context.ActionArguments.Add(key, data);
+            else context.ActionArguments[key] = data;
 
 
             await next();
