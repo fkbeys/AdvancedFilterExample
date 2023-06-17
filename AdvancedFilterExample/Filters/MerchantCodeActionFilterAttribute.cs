@@ -3,18 +3,14 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace AdvancedFilterExample.Filters
 {
-    public class MerchantCodeFilter : IAsyncActionFilter
+    public class MerchantCodeActionFilterAttribute : ActionFilterAttribute
     {
-        public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+        public override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
             //getdata
             string key = "merchantCode";
-            string data = context.RouteData.Values[key].ToString();
+            var data = context.RouteData.Values[key].ToString();
 
-            if (data.Length < 4)
-            {
-                throw new Exception("Merchant code can not be less then 4 characters...") { };
-            }
 
             //set data
             //we find the base class of the model
@@ -33,10 +29,8 @@ namespace AdvancedFilterExample.Filters
                 else context.ActionArguments[key] = data;
             }
 
-
-
-
-            await next();
+            return base.OnActionExecutionAsync(context, next);
         }
+
     }
 }

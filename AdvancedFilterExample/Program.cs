@@ -13,7 +13,7 @@ namespace AdvancedFilterExample
 
             builder.Services.AddControllers(opt =>
             {
-                opt.Filters.Add<MerchantCodeFilter>();
+               // opt.Filters.Add<MerchantCodeFilter>();
             });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
