@@ -11,10 +11,7 @@ namespace AdvancedFilterExample.Filters
             string key = "merchantCode";
             string data = context.RouteData.Values[key].ToString();
 
-            if (data.Length < 4)
-            {
-                throw new Exception("Merchant code can not be less then 4 characters...") { };
-            }
+           
 
             //set data
             //we find the base class of the model
