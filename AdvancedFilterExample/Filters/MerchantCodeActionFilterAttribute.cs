@@ -14,7 +14,6 @@ namespace AdvancedFilterExample.Filters
             {
                 throw new Exception("Merchant code can not be less then 4 characters...") { };
             }
-
             //set data
             //we find the base class of the model
             var baseRequest = context.ActionArguments.FirstOrDefault(x => x.Value != null && typeof(MerchantBase).IsAssignableFrom(x.Value.GetType()));

@@ -15,7 +15,6 @@ namespace AdvancedFilterExample.Controllers
         [Route("GetUsers")]
         public async Task<IActionResult> Get(string merchantCode)
         {
-
             return Ok($"User data listed for: {merchantCode} ");
         }
 
@@ -26,7 +25,5 @@ namespace AdvancedFilterExample.Controllers
         {
             return Ok($"User data updated for: {merchant.code} ");
         }
-
-
     }
 }
